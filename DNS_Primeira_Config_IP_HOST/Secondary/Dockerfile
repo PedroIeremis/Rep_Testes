@@ -8,7 +8,7 @@ RUN apt-get update \
 
 RUN apt-get upgrade -y
 
-#COPY db.ac.asa.br /etc/bind/
+COPY db.ac.asa.br /etc/bind/
 #COPY db.reverse.ac.asa.br /etc/bind/
 COPY db.root /etc/bind/
 
