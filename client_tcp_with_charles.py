@@ -85,7 +85,7 @@ def client():
                     pos += 2048
 
         else:
-            pass
+            print(f'\nOpção < {op} > é inválida!\nTente novamente.')
         
         print()
 client()

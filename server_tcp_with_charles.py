@@ -90,7 +90,9 @@ def interact(data):
                         arq.write(dados)
 
             else:
-                pass
+                print('-'*70)
+                print(f'\nRELATÓRIO\n\nCliente {data}\nEnviou Opção Inválida: < {req.decode(CODEX)} >.\n')
+                print('-'*70)
 
     except Exception as e:
         print(f'\nHouve algum erro na interatividade com cliente ou ele encerrou conexão.\nERROR: {e}')
