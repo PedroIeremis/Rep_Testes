@@ -13,12 +13,17 @@ def client():
     cli.connect((ip, port))
 
     tam = cli.recv(STRUCT_SERVER)
+    print(f'Primeiro TAM: {tam}')
     st = struct.unpack('I', tam)[0]
     menu = cli.recv(st).decode(CODEX)
+    time.sleep(0.1)
 
     tam = cli.recv(STRUCT_SERVER)
+    print(f'Segundo TAM: {tam}')
     if b'\n' in tam:
         tam = tam.removeprefix(b'\n')
+    if b'PAS' in tam:
+        tam = tam.removesuffix(b'PAS')
     st = struct.unpack('I', tam)[0]
     msg = cli.recv(st).decode(CODEX)
 
@@ -35,7 +40,7 @@ def client():
 
         if op == '\\q':
             print('Encerrando...')
-            time.sleep(0.5)
+            time.sleep(0.3)
             cli.close()
             print('Conexão fechada!')
             break
